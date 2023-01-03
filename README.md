@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The raw dataset annotations are in Label Studio Common Format, and are expected to be converted to a COCO-like format before publication.
+The raw dataset annotations are encoded in [Label Studio](https://labelstud.io) Common Format, and are expected to be converted to a COCO-like format before publication.
 
 The preprocessed COCO-like annotation should conform to the following structure:
 
