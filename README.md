@@ -8,7 +8,7 @@ The raw dataset annotations are encoded in [Label Studio](https://labelstud.io) 
 
 The preprocessed COCO-like annotation should conform to the following structure:
 
-```json
+```
 {
   "images": [
     {
