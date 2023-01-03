@@ -1,5 +1,7 @@
 # Scripts for Barcode Detection Dataset Preparation
 
+Note that the dataset is unreleased, and we have no plans on releasing it (yet).
+
 ## Introduction
 
 The raw dataset annotations are encoded in [Label Studio](https://labelstud.io) Common Format, and are expected to be converted to a COCO-like format before publication.
