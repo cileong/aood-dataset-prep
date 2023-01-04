@@ -1,12 +1,10 @@
-# Scripts for Barcode Detection Dataset Preparation
-
-Note that the dataset is unreleased, and we have no plans on releasing it (yet).
+# Arbitrary-Oriented Object Detection - Dataset Preparation Tools
 
 ## Introduction
 
-The raw dataset annotations are encoded in [Label Studio](https://labelstud.io) Common Format, and are expected to be converted to a COCO-like format before publication.
+At the moment, the tools in this repository only support conversion *from* the [Label Studio](https://labelstud.io) Common Format.
 
-The preprocessed COCO-like annotation should conform to the following structure:
+The script will convert the dataset annotations to a COCO-like format with the following structure:
 
 ```
 {
@@ -41,4 +39,4 @@ The preprocessed COCO-like annotation should conform to the following structure:
 }
 ```
 
-The scripts in the repository encode the annotations into the COCO-like format.
+More target formats and other functionalities may be added in the future upon request.
