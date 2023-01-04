@@ -13,7 +13,7 @@ The preprocessed COCO-like annotation should conform to the following structure:
   "images": [
     {
       "id": Integer,
-      "filename": String,
+      "file_name": String,
       "width": Integer,
       "height": Integer
     }
