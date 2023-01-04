@@ -11,7 +11,7 @@ The script will convert the dataset annotations to a COCO-like format with the f
   "images": [
     {
       "id": Integer,
-      "filename": String,
+      "file_name": String,
       "width": Integer,
       "height": Integer
     }
