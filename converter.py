@@ -57,7 +57,7 @@ class DataConverter:
                 # Map category name to category ID.
                 (cat_name,) = label["rectanglelabels"]
                 if cat_name not in categories:
-                    cat_id = len(categories)
+                    cat_id = len(categories) + 1
                     categories[cat_name] = cat_id
 
                 x1 = label["x"]
