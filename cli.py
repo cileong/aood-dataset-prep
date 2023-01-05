@@ -17,10 +17,16 @@ def build_parser():
     )
 
     parser.add_argument(
-        "-o", "--output-path",
+        "-o",
+        "--output-path",
         type=str,
         default="output.json",
         help="path to the output JSON file",
+    )
+
+    parser.add_argument(
+        "--clean-path",
+        action="store_true",
     )
 
     return parser
@@ -28,14 +34,22 @@ def build_parser():
 
 if __name__ == "__main__":
     from converter import *
+    from path_wrangler import *
     from pathlib import Path
 
-    # Retrieve the path arguments.
+    # Retrieve the CLI arguments.
     parser = build_parser()
     args = parser.parse_args()
     input_path = Path(args.input_path)
     output_path = Path(args.output_path)
+    clean_path = args.clean_path
 
-    # Dump the output.
+    # Parse the input JSON file.
     converter = DataConverter.from_json(input_path)
+
+    if clean_path:
+        for img_entry in converter.images:
+            img_entry["file_name"] = str(to_local_path(img_entry["file_name"]))
+
+    # Dump the JSON file.
     converter.to_json(output_path)
