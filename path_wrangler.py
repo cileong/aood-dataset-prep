@@ -20,5 +20,5 @@ def to_local_path(path: Path | str, *, parent: Path | str = None) -> Path:
         raise ValueError(f"File name not found: {path}")
     filename = Path(filename)
     if parent is not None:
-        filename = Path(parent) + filename
+        filename = Path(parent) / filename
     return filename
