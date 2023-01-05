@@ -35,6 +35,7 @@ def build_parser():
 if __name__ == "__main__":
     from converter import *
     from path_wrangler import *
+    import json
     from pathlib import Path
 
     # Retrieve the CLI arguments.
@@ -44,12 +45,14 @@ if __name__ == "__main__":
     output_path = Path(args.output_path)
     clean_path = args.clean_path
 
-    # Parse the input JSON file.
-    converter = DataConverter.from_json(input_path)
-
     if clean_path:
-        for img_entry in converter.images:
-            img_entry["file_name"] = str(to_local_path(img_entry["file_name"]))
+        with open(input_path) as file:
+            data = json.load(file)
+        for entry in data:
+            entry["image"] = str(to_local_path(entry["image"]))
+        converter = DataConverter(data)
+    else:
+        converter = DataConverter.from_json(input_path)
 
     # Dump the JSON file.
     converter.to_json(output_path)
