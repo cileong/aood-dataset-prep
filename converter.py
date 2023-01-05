@@ -4,6 +4,8 @@ Converter that converts data from Label Studio Common Format
 oriented object detection task.
 """
 
+__all__ = ("DataConverter",)
+
 from PIL import Image, ImageOps
 
 import json

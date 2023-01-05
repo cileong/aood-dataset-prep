@@ -22,11 +22,11 @@ def box_cxcywh_to_4xy(cx, cy, w, h):
     (`x1`, `y1`, `x2`, `y2`, `x3`, `y3`, `x4`, `y4`)
     representation.
     """
-    dx, dy = w/2, h/2
-    x1, y1 = cx-dx, cy-dy
-    x2, y2 = cx+dx, cy-dy
-    x3, y3 = cx+dx, cy+dy
-    x4, y4 = cx-dx, cy+dy
+    dx, dy = w / 2, h / 2
+    x1, y1 = cx - dx, cy - dy
+    x2, y2 = cx + dx, cy - dy
+    x3, y3 = cx + dx, cy + dy
+    x4, y4 = cx - dx, cy + dy
     return (x1, y1, x2, y2, x3, y3, x4, y4)
 
 
@@ -50,9 +50,9 @@ def box_x1y1whr_to_bounding_cxcywh(x1, y1, w, h, r, rad=False):
     (`cx`, `cy`, `w`, `h`) that bounds the rotated box
     (`x1`, `y1`, `w`, `h`, `r`).
     """
-    x2, y2 = _rotate(x1, y1, x1+w, y1, r, rad)
-    x3, y3 = _rotate(x2, y2, x2, y2+h, r, rad)
-    x4, y4 = _rotate(x3, y3, x3-w, y3, r, rad)
+    x2, y2 = _rotate(x1, y1, x1 + w, y1, r, rad)
+    x3, y3 = _rotate(x2, y2, x2, y2 + h, r, rad)
+    x4, y4 = _rotate(x3, y3, x3 - w, y3, r, rad)
 
     cx, cy = _midpoint(x1, y1, x3, y3)
     xs = (x1, x2, x3, x4)
@@ -123,6 +123,6 @@ def _rotate(cx, cy, x, y, theta, rad=False):
     angle `theta`. Returns the rotated point (`x1`, `y1`).
     """
     theta = radians(theta) if not rad else theta
-    x1 = (x-cx)*cos(theta) - (y-cy)*sin(theta) + cx
-    y1 = (x-cx)*sin(theta) + (y-cy)*cos(theta) + cy
+    x1 = (x - cx) * cos(theta) - (y - cy) * sin(theta) + cx
+    y1 = (x - cx) * sin(theta) + (y - cy) * cos(theta) + cy
     return (x1, y1)
